@@ -5,7 +5,6 @@ gem 'pry'
 gem 'redcarpet'
 gem 'sinatra'
 gem 'bcrypt'
-gem 'bundler'
 
 
 
