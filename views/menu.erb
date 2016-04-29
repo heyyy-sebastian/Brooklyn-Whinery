@@ -1,0 +1,62 @@
+working on this.
+
+<%=@menu["title"]%>
+
+<%@wine_a.each do |wine| %>
+<h3>
+<%=wine["year"]%> | <%=wine["vineyard"]%> | <%=wine["type"]%>
+</h3>
+<p>
+<%=wine["description"]%>
+</p>
+<%end%>
+<%@wine_b.each do |wine| %>
+<h3>
+<%=wine["year"]%> | <%=wine["vineyard"]%> | <%=wine["type"]%>
+</h3>
+<p>
+<%=wine["description"]%>
+</p>
+<%end%>
+<%@wine_c.each do |wine| %>
+<h3>
+<%=wine["year"]%> | <%=wine["vineyard"]%> | <%=wine["type"]%>
+</h3>
+<p>
+<%=wine["description"]%>
+</p>
+<%end%>
+
+<p><%= @menu["vote"] %> likes on this menu</p>
+
+<p>Like This Menu</p>
+<form class="votes" action="/upvote" method="post">
+    <label for="upvotes"></label>
+    <input type="hidden" name="_method" value="put"/>
+    <input type="submit" name="vote" value="Cheers" />
+    <input type="hidden" name="menu_id" value=<%=@menu["id"]%> />
+  </form>
+
+<% @comments_md.each do |comment| %>
+  <%=comment%>
+<%end%>
+
+      <!--  <p> No Tasting Notes Yet </p> -->
+
+        <div class="comment">
+
+          <form action="/addcomment" method="post">
+            <!--<input type="hidden" name="_method" value="put" />-->
+
+            <div class="input-row">
+            <label>Tasting Notes: </label>
+            <input type='hidden' name='menu_id' value=<%=@menu["id"]%>>
+            <input type="textarea" name="description"/>
+            </div>
+
+            <div class="input-row">
+              <input type="submit" value="Send"/>
+          </div>
+
+          </form>
+          </div>

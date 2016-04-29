@@ -1,0 +1,44 @@
+Not much here yet.
+<p>should probably explain how this works here</p>
+<a href="/makemenu">generate new menu</a>
+<p>Sort menus by:</p>
+<a href="/allmenus">Most Comments</a>
+<a href="/allmenus">Most Likes</a>
+
+<div>
+<p>All Menus</p>
+
+<% if @menus.entries.any? %>
+<% @menus.each do |menu|%>
+  <div>
+  <%=menu["title"]%>
+  </div>
+  <%end%>
+<%else%>
+<p>No menus yet</p>
+<%end%>
+</div>
+
+
+<div>
+<p>Top Likes</p>
+<%if @menus_likes.entries.any? %>
+<%@menus_likes.each do |menu|%>
+<div>
+<p><%=menu["title"]%> : <%#=menu["vote"]%></p>
+</div>
+<%end%>
+<%end%>
+</div>
+
+<div>
+<p>Top Comments</p>
+<%if @menus_comments.entries.any? %>
+<%@menus_comments.each do |menu|%>
+<div>
+<p><%=menu["title"]%></p>
+</div>
+<%end%>
+<%end%>
+</div>
+

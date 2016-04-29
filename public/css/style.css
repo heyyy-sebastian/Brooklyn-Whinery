@@ -1,0 +1,44 @@
+body{
+  background-image: url('/img/wood-background.jpg')
+}
+
+h1,h2,h3,h4,h5,h6,a{
+  font-family: cinzel, serif;
+}
+
+p,li,input{
+  font-family: 'open sans', sans-serif;
+}
+
+.font-change a, h2{
+  font-family: 'open sans', sans-serif;
+}
+
+.clearfix{
+  overflow: auto;
+}
+
+#logo{
+  padding: .5em;
+}
+
+nav .nav-wrapper {
+  height: 80px;
+  overflow: hidden;
+}
+nav .brand-logo {
+  position: inherit;
+  float: left;
+}
+
+nav .brand-logo-text {
+  float: left;
+  margin: 0 0 0 20px;
+}
+
+select { display: block }
+
+.main_content {
+  padding: 20px;
+}
+
