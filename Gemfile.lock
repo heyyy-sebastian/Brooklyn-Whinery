@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     bcrypt (3.1.11)
     coderay (1.1.1)
