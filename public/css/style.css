@@ -2,18 +2,19 @@ body{
   background-image: url('/img/wood-background.jpg')
 }
 
-h1,h2,h3,h4,h5,h6,a{
+h1,h2,h3,h4,h5,h6,a,button{
   font-family: cinzel, serif;
 }
 
-p,li,input{
+p,li,input,#footer-txt{
   font-family: 'open sans', sans-serif;
 }
 
-.font-change a, h2{
+.font-change, .font-change a, h2{
   font-family: 'open sans', sans-serif;
 }
 
+/*Navbar Styling*/
 .clearfix{
   overflow: auto;
 }
@@ -23,9 +24,10 @@ p,li,input{
 }
 
 nav .nav-wrapper {
-  height: 80px;
+  height: 6.5em;
   overflow: hidden;
 }
+
 nav .brand-logo {
   position: inherit;
   float: left;
@@ -36,9 +38,67 @@ nav .brand-logo-text {
   margin: 0 0 0 20px;
 }
 
-select { display: block }
-
-.main_content {
-  padding: 20px;
+#modal2{
+  font-size: 1.1em;
 }
 
+/*Footer styling*/
+.font-change a:hover{
+  opacity: .5;
+}
+
+/*Content page styling*/
+.main_content {
+  padding: 1em;
+}
+
+/*Index page styling*/
+.index_pg{
+  padding: 1.5em;
+  line-height: 125%;
+  text-align: center;
+}
+
+.index_pg img{
+  border: .5em solid #8d6e63;
+}
+
+.index_pg a, .btn-brdr{
+  border: .2em solid #8d6e63;
+}
+
+.btn-div{
+ display: inline-block;
+ margin: 0 auto;
+ padding: 1em;
+}
+
+.index_pg p{
+  font-size: 1.5em;
+  line-height: 125%;
+}
+
+/*Signup page styling*/
+.signup_pg, .login_pg{
+  padding: 2em;
+}
+
+.btn-brdr{
+  margin-top: 1em;
+}
+
+.login-success{
+  line-height: 150%;
+}
+
+/*
+.input-colors input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+*/
+
+/*Make Menu Page*/
+.make_menu{
+  padding: 4em 0 2em 0;
+}

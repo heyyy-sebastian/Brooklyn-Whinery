@@ -1,30 +1,35 @@
-<h1>Welcome to Brooklyn Whinery</h1>
-<p>A forum for wine, whining and wastrels</p>
+<div class="signup_pg">
+<div class="container">
+<h3>Sign Up</h3>
 <%if @created%>
-<p class="signup-success">New wastrel created!<br>Click below to login.<br>
-<a href="/login">LOGIN</a></p>
+<h4 class="login-success font-change">New wastrel created!<br>Click below to login.</h4>
+<a href="/login" class="btn brown darken-3 waves-effect waves-light btn-brdr">LogIn</a>
 <%else%>
+
 <div class="signup form-wrapper">
   <form class="form" actions="/signup" method="post">
   <div class="input-row">
-      <label for="name">USER NAME:</label><br>
-      <input type="text" name="name" /><br>
+      <label for="name"><h5>UserName:</h5></label><br>
+      <input id="input-colors" type="text" name="name" /><br>
     </div>
 
     <div class="input-row">
-      <label for="email">EMAIL:</label><br>
-      <input type="email" name="email" /><br>
+      <label for="email"><h5>Email:</h5></label><br>
+      <input class="input-colors" type="email" name="email" /><br>
     </div>
 
     <div class="input-row">
-      <label for="password">PASSWORD:</label><br>
-      <input type="password" name="password" /><br>
+      <label for="password"><h5>Password:</h5></label><br>
+      <input class="input-colors" type="password" name="password" /><br>
     </div>
 
-    <div class="input-row">
-      <input type="submit" value="Finish"><br>
+    <div>
+    <button class="btn brown darken-3 waves-effect waves-light btn-brdr"
+    type="submit" name="action">Finish</button>
     </div>
 
   </form>
 </div>
 <%end%>
+</div>
+</div>

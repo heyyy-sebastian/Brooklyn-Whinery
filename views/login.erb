@@ -1,13 +1,17 @@
-<p>A login form goes here</p>
- <div class="main-container">
-      <h1 class="login">Log In</h1>
+<div class="login_pg">
+ <div class="container">
+      <h3 class="login">Log In</h3>
+      <div class="form-wrapper">
       <form class="signup" action="/login" method="post">
-        <label for="email">Email: </label>
-        <input name="email" type="text" />
-        <br />
-        <label for="password">Password: </label>
-        <input name="password" type="password" />
-        <br />
-        <input type="submit" value="Log In" />
+        <label for="email"><h5>Email:</h5></label>
+        <input name="email" type="text"/>
+        <br>
+        <label for="password"><h5>Password:</h5></label>
+        <input name="password" type="password"/>
+        <br>
+        <button class="btn brown darken-3 waves-effect waves-light btn-brdr"
+        type="submit" name="action">LogIn</button>
       </form>
+      </div>
     </div>
+</div>

@@ -1,6 +1,7 @@
-<div class="main_content">
-
-<p>K let's make a menu</p>
+<div class="main_content make_menu">
+<div class="container">
+<h3>Create a New Menu</h3>
+<div class="form-wrapper">
 <form class="form" actions="/makemenu" method="post">
 <div class="input-row">
   <label for="title">Title:</label>
@@ -21,24 +22,13 @@
         <input type="checkbox" name="color" value="both" id="bothw"/><label for="bothw">both?</label>
 </div>
 
-<!--
-<div class="col s12">
-<label>What kind of wine would you like?</label>
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option name="color" value="red">red</option>
-      <option name="color" value="white">white</option>
-      <option name="color" value="both">both</option>
-    </select>
--->
-
-  </div>
-
 <div class="input-row">
       <input type="submit" value="Finish"><br>
 </div>
 </form>
-<%if @created%>
-<%=@newmenu%>
-<%end%>
+</div>
+<%#if @created%>
+<%#=@newmenu%>
+<%#end%>
+</div>
 </div>

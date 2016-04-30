@@ -5,6 +5,7 @@
   <link href='https://fonts.googleapis.com/css?family=Cinzel|Open+Sans' rel='stylesheet' type='text/css'>
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <!--Custom CSS Rules-->
   <link href="/css/style.css" rel="stylesheet" type="text/css">
 
   <!--Let browser know website is optimized for mobile-->
@@ -13,21 +14,38 @@
 <body>
   <div class="container brown lighten-5">
 
-  <nav id="bk-navbar">
-    <div class="nav-wrapper brown clearfix">
+  <nav>
+    <div class="nav-wrapper brown clearfix main_content">
       <a href="/" class="brand-logo">
         <img src="img/wine-logo.jpg" alt="wine-logo" class="circle responsive-img col s1">
       </a>
-      <a href="/" class="brand-logo brand-logo-text">Brooklyn Winery</a>
+      <a href="/" class="brand-logo brand-logo-text">Brooklyn Whinery</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/about">About</a></li>
+        <li><a href="#modal2" class="modal-trigger">About</a></li>
+        <li><a href="/signup">SignUp</a></li>
         <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Signup</a></li>
       </ul>
     </div>
   </nav>
-
 <%= yield %>
+<div id="modal2" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>About</h4>
+      <p>Brooklyn Whinery is an online forum that lets you create and share wine tasting
+      menus based on your mood. Are you brooding? Celebrating? Relaxing? With an extensive
+      database of wines, vintages and vinters, we have the wine recommendation that's
+      perfect for you! Add tasting notes and discuss wines with other users, and vote on your
+      favorite menus.</p>
+      <p>And the best part — it's free and easy to use! Simply create an account
+      and login to begin.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/signup" class=" modal-action modal-close waves-effect brown darken-3
+      btn-flat grey-text text-lighten-3 abt-mdl">Signup</a>
+      <a href="/login" class=" modal-action modal-close waves-effect brown darken-3
+      btn-flat grey-text text-lighten-3 abt-mdl">Login</a>
+    </div>
+  </div>
 
   <footer class="page-footer brown darken-3">
           <div class="container">
@@ -48,9 +66,9 @@
             </div>
           </div>
           <div class="footer-copyright brown darken-4">
-            <div class="container">
-            <p>© May 2016 Hailey Miller</p>
-            </div>
+          <div class="container" id="footer-txt">
+            © May 2016 Hailey Miller
+          </div>
           </div>
         </footer>
   </div>
@@ -59,3 +77,4 @@
 <!--Import jQuery before materialize.js-->
 <script src="/js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="/js/script.js"></script>
