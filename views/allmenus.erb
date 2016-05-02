@@ -56,8 +56,9 @@ to create a new menu, or scroll down to view past menus.</p>
 </div>
 </div>
 
-<div class="top-comments">
-<h4>Top Comments</h4>
+<% if @menus_likes.entries.any?%>
+<div class="top-likes">
+<h5>Top Likes</h5>
 <%if @menus_likes.entries.any? %>
 <%@menus_likes.each do |menu|%>
   <div class="row">
@@ -76,10 +77,11 @@ to create a new menu, or scroll down to view past menus.</p>
       </div>
 <%end%>
 <%end%>
+<%end%>
 </div>
 
-<div class="top-likes">
-<h5>Top Likes</h5>
+<div class="top-comments">
+<h5>Top Comments</h5>
 <%if @menus_comments.entries.any? %>
 <%@menus_comments.each do |menu|%>
 <div class="row">
