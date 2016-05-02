@@ -69,10 +69,10 @@ module Sinatra
     end
 
     #Figure out a better signout method?
-    #get "/signout" do
-     # logged_in = false
-     # erb :signout
-    #end
+    get "/signout" do
+      session.clear
+      erb :signout
+    end
 
     ########################
     #### SIGNUP METHODS ####
