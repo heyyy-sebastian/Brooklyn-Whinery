@@ -4,9 +4,9 @@
   <!--Import Google Icon Font-->
   <link href='https://fonts.googleapis.com/css?family=Cinzel|Open+Sans' rel='stylesheet' type='text/css'>
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href=<%=url("/css/materialize.min.css")%>  media="screen,projection"/>
   <!--Custom CSS Rules-->
-  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href=<%=url("/css/style.css")%> rel="stylesheet" type="text/css">
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,7 +17,7 @@
   <nav>
     <div class="nav-wrapper brown clearfix main_content">
       <a href="/" class="brand-logo">
-        <img src="img/wine-logo.jpg" alt="wine-logo" class="circle responsive-img col s1">
+        <img src="/img/wine-logo.jpg" alt="wine-logo" class="circle responsive-img col s1">
       </a>
       <a href="/" class="brand-logo brand-logo-text">Brooklyn Whinery</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">

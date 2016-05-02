@@ -103,10 +103,8 @@ module Sinatra
     get "/allmenus" do
       if logged_in?
         @menus = conn.exec("SELECT * FROM menus")
-        @menus_likes = conn.exec("SELECT * FROM menus ORDER BY vote LIMIT 6")
-        @menus_comments = conn.exec("SELECT * FROM menus ORDER BY num_comments DESC LIMIT 6")
-
-
+        @menus_likes = conn.exec("SELECT * FROM menus ORDER BY vote ASC LIMIT 6")
+        @menus_comments = conn.exec("SELECT * FROM menus ORDER BY num_comments ASC LIMIT 6")
         erb :allmenus
       else
         erb :login
@@ -127,7 +125,7 @@ module Sinatra
       @color = params[:color]
 
       if @color == "both"
-        @newmenu = conn.exec_params("SELECT * FROM wines WHERE mood='#{@mood}' ORDER BY RANDOM() LIMIT 3")
+        @newmenu = conn.exec_params("SELECT * FROM wines WHERE mood=$1 ORDER BY RANDOM() LIMIT 3", [@mood])
         @winearray = @newmenu.map do |wine|
           wine["id"]
         end
@@ -135,7 +133,7 @@ module Sinatra
         @add_menu = conn.exec_params("SELECT id FROM menus WHERE title='#{@title}'")
         @created = true
       elsif
-        @newmenu = conn.exec_params("SELECT * FROM wines WHERE mood='#{@mood}' AND color='#{@color}' ORDER BY RANDOM() LIMIT 3")
+        @newmenu = conn.exec_params("SELECT * FROM wines WHERE mood=$1 AND color=$2 ORDER BY RANDOM() LIMIT 3", [@mood, @color])
         @winearray = @newmenu.map do |wine|
           wine["id"]
         end
@@ -146,7 +144,6 @@ module Sinatra
 
       if @created
       @id = @add_menu[0]["id"].to_i
-
       redirect "/allmenus/#{@id}"
     else
       redirect "/makemenu"
@@ -159,17 +156,15 @@ module Sinatra
     ###############################
 
     get "/allmenus/:id" do
-      @menu = conn.exec("SELECT * FROM #{'menus'} WHERE id=#{params[:id]}").first
-      @wine_a = conn.exec("SELECT * FROM #{'wines'} WHERE id=#{@menu["wine_a"]}")
-      @wine_b = conn.exec("SELECT * FROM #{'wines'} WHERE id=#{@menu["wine_b"]}")
-      @wine_c = conn.exec("SELECT * FROM #{'wines'} WHERE id=#{@menu["wine_c"]}")
+      @menu = conn.exec_params("SELECT * FROM menus WHERE id=$1", [params[:id]]).first
+      @wine_a = conn.exec("SELECT * FROM wines WHERE id=#{@menu["wine_a"]}")
+      @wine_b = conn.exec("SELECT * FROM wines WHERE id=#{@menu["wine_b"]}")
+      @wine_c = conn.exec("SELECT * FROM wines WHERE id=#{@menu["wine_c"]}")
       ## THIS BECOMES AN ARRAY where each hash is the wine object from the wines table
-      @comments = conn.exec("SELECT * FROM comments WHERE menu_id=$1", [@menu["id"]])
+      @comments = conn.exec_params("SELECT * FROM comments WHERE menu_id=$1", [@menu["id"]])
       @comments_md = @comments.map{ |comments|
         markdown.render(comments["description"])
       }
-
-
       erb :menu
     end
 
@@ -204,6 +199,6 @@ module Sinatra
       redirect "/allmenus/#{menu_id}"
     end
 
- ##
+ ##Don't move these two end statements
   end
 end

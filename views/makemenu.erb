@@ -3,28 +3,47 @@
 <h3>Create a New Menu</h3>
 <div class="form-wrapper">
 <form class="form" actions="/makemenu" method="post">
-<div class="input-row">
-  <label for="title">Title:</label>
+
+<div class="title-row">
+  <p>What you like to call your menu?</p>
+  <p>
+  <label for="title"><h5>Title:</h5></label>
   <input type="text" name="title"/>
+  </p>
 </div>
 
-<div class="section">
-<div  class="moods section"><p>Are you sad or celebrating?</p>
-<input type="checkbox" name="mood" value="sad" id="sadcheck"/>
-<label for="sadcheck">sad</label>
-<input type="checkbox" name="mood" value="happy" id="happycheck"/>
-<label for="happycheck">celebrating</label>
-</div>
-</div>
-<div class="wine-color section">Would you like<br>
-        <input type="checkbox" name="color" value="red" id="redw"/><label for="redw">red</label><br>
-        <input type="checkbox" name="color" value="white" id="ww"/><label for="ww">white</label><br>
-        <input type="checkbox" name="color" value="both" id="bothw"/><label for="bothw">both?</label>
+
+<div  class="moods"><p>Are you sad or celebrating?</p>
+  <p>
+  <input type="checkbox" name="mood" value="sad" id="sadcheck"/>
+  <label for="sadcheck">Sad</label>
+  </p>
+  <p>
+  <input type="checkbox" name="mood" value="happy" id="happycheck"/>
+  <label for="happycheck">Celebrating</label>
+  </p>
 </div>
 
-<div class="input-row">
-      <input type="submit" value="Finish"><br>
-</div>
+  <div class="wine-color section"><p>Would you like</p>
+        <p>
+        <input type="checkbox" name="color" value="red" id="redw"/>
+        <label for="redw">red</label>
+        </p>
+        <p>
+        <input type="checkbox" name="color" value="white" id="ww"/>
+        <label for="ww">white</label>
+        </p>
+        <p>
+        <input type="checkbox" name="color" value="both" id="bothw"/>
+        <label for="bothw">both?</label>
+        </p>
+  </div>
+
+  <div>
+    <button class="btn brown darken-3 waves-effect waves-light btn-brdr"
+    type="submit" name="action">Finish</button>
+  </div>
+
 </form>
 </div>
 <%#if @created%>

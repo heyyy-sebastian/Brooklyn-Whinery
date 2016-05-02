@@ -1,44 +1,102 @@
-Not much here yet.
-<p>should probably explain how this works here</p>
-<a href="/makemenu">generate new menu</a>
-<p>Sort menus by:</p>
-<a href="/allmenus">Most Comments</a>
-<a href="/allmenus">Most Likes</a>
+<div class="allmenus_pg">
 
-<div>
-<p>All Menus</p>
+<div class="welcome">
+<h4>Welcome to Brooklyn Whinery!</h4>
+<p>Here you can create and share new wine tasting menus to discuss with
+other wastrels. Each menu's recommendations are made based on your mood and
+the kind of wine you'd like to imbibe (red, white or both). Click below
+to create a new menu, or scroll down to <br>view past menus.</p>
+<a href="/makemenu" class="waves-effect waves-light btn brown darken-3 btn-brdr">generate new menu</a>
+</div>
 
-<% if @menus.entries.any? %>
-<% @menus.each do |menu|%>
-  <div>
-  <%=menu["title"]%>
-  </div>
+<div class="menu-display">
+<h4>All Menus</h4>
+<p id="sorter">SORT MENUS BY:</p>
+<a href="#" class="waves-effect waves-light btn brown darken-3 btn-brdr">Most Likes</a><br>
+<a href="#" class="waves-effect waves-light btn brown darken-3 btn-brdr">Most Comments</a>
+
+
+<div class="random-order">
+<% if @menus.entries.any?%>
+<% @menus.each_with_index do |menu, index|%>
+<%#if index%2 == 0%>
+  <div class="row">
+        <div class="col s12 m6">
+          <div class="card small">
+            <div class="card-image">
+              <img src="img/menu-thumbnail.png">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><h5><%=menu["title"]%></h5></span>
+              <p><a href="/allmenus/<%=menu["id"].to_i%>" class="waves-effect waves-light btn brown lighten-1">View</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<%#else%>
+        <div class="col s12 m6 offset-by-6">
+          <div class="card small">
+            <div class="card-image">
+              <img src="img/menu-thumbnail.png">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><h5><%#=menu["title"]%></h5></span>
+              <p><a href="/allmenus/<%#=menu["id"].to_i%>">View</a></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <%#end%>
   <%end%>
 <%else%>
-<p>No menus yet</p>
+<h4>No menus yet</h4>
 <%end%>
 </div>
+</div>
 
-
-<div>
-<p>Top Likes</p>
+<div class="top-comments">
+<h5>Top Comments</h5>
 <%if @menus_likes.entries.any? %>
 <%@menus_likes.each do |menu|%>
-<div>
-<p><%=menu["title"]%> : <%#=menu["vote"]%></p>
-</div>
+  <div class="row">
+        <div class="col s12 m6">
+          <div class="card medium">
+            <div class="card-image">
+              <img src="img/menu-thumbnail.png">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><h5><%=menu["title"]%></h5></span>
+              <p><%=menu["num_comments"]%> Comments</p>
+              <p><a href="/allmenus/<%=menu["id"].to_i%>" class="waves-effect waves-light btn brown lighten-1">View</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
 <%end%>
 <%end%>
 </div>
 
-<div>
-<p>Top Comments</p>
+<div class="top-likes">
+<h5>Top Likes</h5>
 <%if @menus_comments.entries.any? %>
 <%@menus_comments.each do |menu|%>
-<div>
-<p><%=menu["title"]%></p>
+<div class="row">
+        <div class="col s12 m6">
+          <div class="card medium">
+            <div class="card-image">
+              <img src="img/menu-thumbnail.png">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><h5><%=menu["title"]%></h5></span>
+              <p><%=menu["vote"]%> Likes</p>
+              <p><a href="/allmenus/<%=menu["id"].to_i%>" class="waves-effect waves-light btn brown lighten-1">View</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+<%end%>
+<%end%>
 </div>
-<%end%>
-<%end%>
+
 </div>
 

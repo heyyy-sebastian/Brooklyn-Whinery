@@ -1,62 +1,85 @@
-working on this.
+<div class="single_menu">
 
-<%=@menu["title"]%>
+
+<div class="menu-content">
+
+<h3><%=@menu["title"]%></h3>
 
 <%@wine_a.each do |wine| %>
-<h3>
+<h4>
 <%=wine["year"]%> | <%=wine["vineyard"]%> | <%=wine["type"]%>
-</h3>
+</h4>
 <p>
 <%=wine["description"]%>
 </p>
 <%end%>
 <%@wine_b.each do |wine| %>
-<h3>
+<h4>
 <%=wine["year"]%> | <%=wine["vineyard"]%> | <%=wine["type"]%>
-</h3>
+</h4>
 <p>
 <%=wine["description"]%>
 </p>
 <%end%>
 <%@wine_c.each do |wine| %>
-<h3>
+<h4>
 <%=wine["year"]%> | <%=wine["vineyard"]%> | <%=wine["type"]%>
-</h3>
+</h4>
 <p>
 <%=wine["description"]%>
 </p>
 <%end%>
+</div>
+
+<div class="comments-etc">
+<p><a class="waves-effect waves-light btn brown" href="/signup">
+< Back to All Menus</a></p>
+
 
 <p><%= @menu["vote"] %> likes on this menu</p>
 
 <p>Like This Menu</p>
+<div class="form-wrapper">
 <form class="votes" action="/upvote" method="post">
     <label for="upvotes"></label>
     <input type="hidden" name="_method" value="put"/>
-    <input type="submit" name="vote" value="Cheers" />
+    <input type="submit" name="vote" value="Cheers" class="btn brown
+    darken-2 waves-effect waves-light btn-brdr" type="submit"/>
     <input type="hidden" name="menu_id" value=<%=@menu["id"]%> />
   </form>
+</div>
 
+<div class="comments-thread">
+<h5>Tasting Notes</h5>
 <% @comments_md.each do |comment| %>
-  <%=comment%>
+  <p class="add-border"><%=comment%></p>
 <%end%>
+</div>
 
-      <!--  <p> No Tasting Notes Yet </p> -->
-
-        <div class="comment">
-
+<div class="comments form-wrapper">
           <form action="/addcomment" method="post">
-            <!--<input type="hidden" name="_method" value="put" />-->
-
-            <div class="input-row">
-            <label>Tasting Notes: </label>
+          <div class="input-row">
+            <label for="tastingnotes"><h5>Add a Tasting Note:</h5></label>
             <input type='hidden' name='menu_id' value=<%=@menu["id"]%>>
-            <input type="textarea" name="description"/>
+            <input type="textarea" id="tastingnotes" name="description" class="hidden-box"/>
+            <textarea name="description" class="materialize-textarea" id="tastingnotes"></textarea>
             </div>
 
-            <div class="input-row">
-              <input type="submit" value="Send"/>
-          </div>
+            <div>
+            <button class="btn brown darken-2 waves-effect waves-light btn-brdr"
+              type="submit" name="action">Add</button>
+            </div>
 
           </form>
-          </div>
+      </div>
+
+ </div>
+
+
+
+
+
+
+
+
+</div>

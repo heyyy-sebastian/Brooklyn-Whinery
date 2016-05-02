@@ -2,7 +2,7 @@ body{
   background-image: url('/img/wood-background.jpg')
 }
 
-h1,h2,h3,h4,h5,h6,a,button{
+h1,h3,h4,h5,h6,a,button{
   font-family: cinzel, serif;
 }
 
@@ -101,4 +101,59 @@ nav .brand-logo-text {
 /*Make Menu Page*/
 .make_menu{
   padding: 4em 0 2em 0;
+}
+
+.make_menu p{
+  font-size: 1.5em;
+}
+
+label {
+  color: #222;
+}
+
+/*All Menus Page*/
+.allmenus_pg{
+  padding: 2.5em;
+  font-size: 1.2em;
+}
+
+.welcome{
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+#sorter{
+  line-height: 100%;
+  margin-bottom: 0em;
+}
+
+.random-order{
+  padding-top: 1em;
+}
+
+.top-likes p, .top-comments p{
+  padding-bottom: .5em;
+}
+
+/*Individual Menu Stylings*/
+.single_menu{
+  padding: 2em;
+}
+
+.menu-content{
+  padding: 2em 4em;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.comments-etc{
+  padding: 0 4em;
+}
+
+.add-border{
+  border-bottom: .2em solid #9e9e9e;
+}
+
+.hidden-box{
+  display: none;
 }
