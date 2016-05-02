@@ -31,28 +31,41 @@
 <%end%>
 </div>
 
+
 <div class="comments-etc">
-<p><a class="waves-effect waves-light btn brown" href="/signup">
-< Back to All Menus</a></p>
 
+<div class="row">
+<div class="col s12 m4 l4">
+<p class="weird-spacer"></p>
+<a class="btn brown darken-2 waves-effect waves-light btn-brdr all-m-btn" href="/allmenus">
+< View All</a>
+</div>
 
-<p><%= @menu["vote"] %> likes on this menu</p>
-
-<p>Like This Menu</p>
+<div class="col s12 m5 l5 hide-this">text div for spacing</div>
+<div class="likes-section col s12 m3 l3 (offset-by-4)">
+<p class="likes-spacing">Like This Menu</p>
 <div class="form-wrapper">
 <form class="votes" action="/upvote" method="post">
     <label for="upvotes"></label>
     <input type="hidden" name="_method" value="put"/>
     <input type="submit" name="vote" value="Cheers" class="btn brown
-    darken-2 waves-effect waves-light btn-brdr" type="submit"/>
+    darken-2 waves-effect waves-light btn-brdr" type="submit" id="single-font-change"/>
     <input type="hidden" name="menu_id" value=<%=@menu["id"]%> />
   </form>
+</div>
+<p><%= @menu["vote"] %> likes on this menu</p>
+</div>
+
 </div>
 
 <div class="comments-thread">
 <h5>Tasting Notes</h5>
+<%if @comments_md.entries.any?%>
 <% @comments_md.each do |comment| %>
   <p class="add-border"><%=comment%></p>
+<%end%>
+<%else%>
+<p>No tasting notes yet</p>
 <%end%>
 </div>
 
@@ -69,17 +82,9 @@
             <button class="btn brown darken-2 waves-effect waves-light btn-brdr"
               type="submit" name="action">Add</button>
             </div>
-
           </form>
       </div>
-
  </div>
-
-
-
-
-
-
 
 
 </div>

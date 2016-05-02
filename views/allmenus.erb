@@ -2,26 +2,26 @@
 
 <div class="welcome">
 <h4>Welcome to Brooklyn Whinery!</h4>
-<p>Here you can create and share new wine tasting menus to discuss with
+<p class="flow-text intro">Here you can create and share new wine tasting menus to discuss with
 other wastrels. Each menu's recommendations are made based on your mood and
 the kind of wine you'd like to imbibe (red, white or both). Click below
-to create a new menu, or scroll down to <br>view past menus.</p>
+to create a new menu, or scroll down to view past menus.</p>
 <a href="/makemenu" class="waves-effect waves-light btn brown darken-3 btn-brdr">generate new menu</a>
 </div>
 
 <div class="menu-display">
-<h4>All Menus</h4>
+<h4 class="all-m-h4">All Menus</h4>
 <p id="sorter">SORT MENUS BY:</p>
-<a href="#" class="waves-effect waves-light btn brown darken-3 btn-brdr">Most Likes</a><br>
-<a href="#" class="waves-effect waves-light btn brown darken-3 btn-brdr">Most Comments</a>
+<a href="#" class="waves-effect waves-light btn brown darken-3 btn-brdr likes-sort">Most Likes</a><br>
+<a href="#" class="waves-effect waves-light btn brown darken-3 btn-brdr comments-sort">Most Comments</a>
 
 
-<div class="random-order">
+<div class="index-order">
 <% if @menus.entries.any?%>
 <% @menus.each_with_index do |menu, index|%>
 <%#if index%2 == 0%>
   <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m5">
           <div class="card small">
             <div class="card-image">
               <img src="img/menu-thumbnail.png">
@@ -32,9 +32,12 @@ to create a new menu, or scroll down to <br>view past menus.</p>
             </div>
           </div>
         </div>
+        <div>
+          <p class="hide-this col m2">lol</p>
+        </div>
       </div>
-      <!--<%#else%>
-        <div class="col s12 m6 offset-by-6">
+      <%#else%>
+        <!--<div class="col s12 m5 l5 (offset-by-7)">
           <div class="card small">
             <div class="card-image">
               <img src="img/menu-thumbnail.png">
@@ -44,8 +47,7 @@ to create a new menu, or scroll down to <br>view past menus.</p>
               <p><a href="/allmenus/<%#=menu["id"].to_i%>">View</a></p>
             </div>
           </div>
-        </div>
-      </div> -->
+        </div> -->
       <%#end%>
   <%end%>
 <%else%>
@@ -55,7 +57,7 @@ to create a new menu, or scroll down to <br>view past menus.</p>
 </div>
 
 <div class="top-comments">
-<h5>Top Comments</h5>
+<h4>Top Comments</h4>
 <%if @menus_likes.entries.any? %>
 <%@menus_likes.each do |menu|%>
   <div class="row">
@@ -97,6 +99,11 @@ to create a new menu, or scroll down to <br>view past menus.</p>
 <%end%>
 <%end%>
 </div>
+
+<div class="signout-btn">
+<a class="waves-effect waves-light btn brown darken-3 btn-brdr" href="/signout">Sign Out</a>
+</div>
+<p class="weird-spacer"></p>
 
 </div>
 
