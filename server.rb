@@ -70,8 +70,8 @@ module Sinatra
 
     #Figure out a better signout method?
     #get "/signout" do
-     # logged_in? = false
-     #redirect "/"
+     # logged_in = false
+     # erb :signout
     #end
 
     ########################
@@ -103,8 +103,8 @@ module Sinatra
     get "/allmenus" do
       if logged_in?
         @menus = conn.exec("SELECT * FROM menus")
-        @menus_likes = conn.exec("SELECT * FROM menus ORDER BY vote ASC LIMIT 6")
-        @menus_comments = conn.exec("SELECT * FROM menus ORDER BY num_comments ASC LIMIT 6")
+        @menus_likes = conn.exec("SELECT * FROM menus ORDER BY vote DESC LIMIT 6")
+        @menus_comments = conn.exec("SELECT * FROM menus ORDER BY num_comments DESC LIMIT 6")
         erb :allmenus
       else
         erb :login
